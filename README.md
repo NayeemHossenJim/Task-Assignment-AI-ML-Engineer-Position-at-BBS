@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎬✨ AI-Powered IMBD_Movie_Review Sentiment Analysis ✨🎬
+# 🎬✨ IMBD_Movie_Review Sentiment Analysis ✨🎬
 
 <img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Brain/3D/brain_3d.png" width="100" height="100" alt="Brain"/>
 
@@ -114,13 +114,13 @@ jupyter notebook "TaskUsingClassification_(Nayeem_Hossen_Jim).ipynb"
 
 #### 🧠 Deep Learning Approach
 ```bash
-jupyter notebook "TaskUsingDeepLearning_(NayeemHossenJim).ipynb"
+jupyter notebook "TaskUsingDeepLearning_(Nayeem_Hossen_Jim).ipynb"
 ```
 
 ### 🛠️ Installation Requirements
 
 ```bash
-pip install pandas scikit-learn nltk matplotlib seaborn jupyter
+pip install -r requirements.txt
 ```
 
 ---
