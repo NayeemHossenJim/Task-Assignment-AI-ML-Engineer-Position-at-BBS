@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎬✨ IMBD_Movie_Review Sentiment Analysis ✨🎬
+# 🎬✨ IMDB Movie Review Sentiment Analysis ✨🎬
 
 <img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Brain/3D/brain_3d.png" width="100" height="100" alt="Brain"/>
 
@@ -83,12 +83,22 @@ graph LR
 ---
 
 ## 📈 Performance Metrics
+
+### 🔬 Traditional ML Model (Logistic Regression)
 | Metric | Score | Description |
 |--------|-------|-------------|
-| **🎯 Accuracy** | **High** | Excellent performance on validation set |
-| **⚖️ F1-Score** | **Optimized** | Balanced precision and recall |
-| **🔄 Generalization** | **Strong** | Reliable on unseen data |
-| **⚡ Speed** | **Fast** | Real-time predictions |
+| **🎯 Accuracy** | **88.50%** | Strong performance on test set |
+| **⚖️ F1-Score** | **88-89%** | Balanced precision and recall |
+| **🔄 Precision** | **88-89%** | Low false positive rate |
+| **⚡ Recall** | **88-89%** | Good true positive detection |
+
+### 🧠 Deep Learning Model (Neural Network)
+| Metric | Score | Description |
+|--------|-------|-------------|
+| **🎯 Accuracy** | **95.65%** | Excellent performance on test set |
+| **⚖️ F1-Score** | **96%** | Outstanding precision-recall balance |
+| **🔄 Precision** | **95-96%** | Very low false positive rate |
+| **⚡ Recall** | **95-96%** | Excellent true positive detection |
 
 ### 🎊 Key Achievements
 
@@ -109,12 +119,12 @@ Choose your preferred approach:
 
 #### 🔬 Traditional ML Approach
 ```bash
-jupyter notebook "TaskUsingClassification_(Nayeem_Hossen_Jim).ipynb"
+jupyter notebook "IMDB_MovieReview_ML.ipynb"
 ```
 
 #### 🧠 Deep Learning Approach
 ```bash
-jupyter notebook "TaskUsingDeepLearning_(Nayeem_Hossen_Jim).ipynb"
+jupyter notebook "IMDB_MovieReview_DL.ipynb"
 ```
 
 ### 🛠️ Installation Requirements
@@ -131,10 +141,10 @@ pip install -r requirements.txt
 <img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Magic%20wand/3D/magic_wand_3d.png" width="60" alt="Magic Wand"/>
 </div>
 
-| Input Text | Predicted Sentiment | Confidence |
-|------------|-------------------|------------|
-| *"This movie is absolutely fantastic!"* | 🟢 **POSITIVE** | 95% |
-| *"What a terrible waste of time."* | 🔴 **NEGATIVE** | 92% |
+| Input Text | Predicted Sentiment |
+|------------|-------------------|
+| *"This movie is absolutely fantastic!"* | 🟢 **POSITIVE** |
+| *"What a terrible waste of time."* | 🔴 **NEGATIVE** |
 
 ### 🎪 Try These Examples:
 
@@ -148,11 +158,12 @@ pip install -r requirements.txt
 ## 📁 Project Structure
 
 ```
-📦 Sentiment-Analysis-Project
- ┣ 📄 Model.pkl                         # 🤖 Trained ML model
+📦 IMDB-Movie-Review-Sentiment-Analysis
+ ┣ 📄 Model_ML.pkl                      # 🤖 Trained ML model  
  ┣ 📄 train_data.csv                    # 📊 Training dataset (IMDB reviews)
- ┣ 📒 TaskUsingClassification_*.ipynb   # 🔬 Traditional ML notebook
- ┣ 📒 TaskUsingDeepLearning_*.ipynb     # 🧠 Deep learning notebook
+ ┣ 📒 IMDB_MovieReview_ML.ipynb         # 🔬 Traditional ML notebook
+ ┣ 📒 IMDB_MovieReview_DL.ipynb         # 🧠 Deep learning notebook
+ ┣ 📄 requirements.txt                  # 📋 Python dependencies
  ┗ 📄 README.md                         # 📖 This documentation
 ```
 
@@ -198,28 +209,42 @@ TfidfVectorizer(
 ---
 
 ## 📊 Advanced Analytics
-### 🎯 Model Performance Metrics
 
-| Metric | Training | Validation | Test |
-|--------|----------|------------|------|
-| **Accuracy** | 95.2% | 89.7% | 88.4% |
-| **Precision** | 94.8% | 90.1% | 89.2% |
-| **Recall** | 95.6% | 89.3% | 87.8% |
-| **F1-Score** | 95.2% | 89.7% | 88.5% |
+### 🎯 Model Performance Comparison
+
+| Metric | ML Model | Deep Learning | Winner |
+|--------|----------|---------------|---------|
+| **Accuracy** | 88.50% | 95.65% | 🧠 **DL** |
+| **Precision (Neg)** | 89% | 96% | 🧠 **DL** |
+| **Precision (Pos)** | 88% | 95% | 🧠 **DL** |
+| **Recall (Neg)** | 88% | 95% | 🧠 **DL** |
+| **Recall (Pos)** | 89% | 96% | 🧠 **DL** |
+| **F1-Score** | 88-89% | 96% | 🧠 **DL** |
 
 ### 🔍 Confusion Matrix Analysis
 
+#### 🔬 Traditional ML Model (5,000 samples)
 ```
                 Predicted
 Actual     Negative  Positive
-Negative      4520      380
-Positive       430     4670
+Negative      2189      311
+Positive       264     2236
 ```
 
-**Insights:**
-- ✅ Low false positive rate (7.7%)
-- ✅ Low false negative rate (8.4%)
-- ✅ Balanced performance across classes
+#### 🧠 Deep Learning Model (25,000 samples)
+```
+                Predicted
+Actual     Negative  Positive
+Negative     11917      583
+Positive       505    11995
+```
+
+**Key Insights:**
+- ✅ **Deep Learning superiority**: 7.15% higher accuracy than traditional ML
+- ✅ **Low False Positive Rate**: ML (12.4%), DL (4.7%)
+- ✅ **Low False Negative Rate**: ML (10.6%), DL (4.0%)
+- ✅ **Balanced Performance**: Both models perform well across positive and negative classes
+- ✅ **Scalability**: Deep learning model trained on 5x more data with better results
 
 ---
 
@@ -247,12 +272,19 @@ Positive       430     4670
 
 ```bash
 # Clone the repository
-git clone https://github.com/NayeemHossenJim/sentiment-analysis
+git clone https://github.com/NayeemHossenJim/Task-Assignment-AI-ML-Engineer-Position-at-BBS
+
+# Navigate to project directory
+cd Task-Assignment-AI-ML-Engineer-Position-at-BBS
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Use any Jupyter Notebook ( Classification || Deep Learning ) 
+# Launch Jupyter Notebook for ML approach
+jupyter notebook IMDB_MovieReview_ML.ipynb
+
+# Or launch Deep Learning approach
+jupyter notebook IMDB_MovieReview_DL.ipynb
 ```
 ---
 
@@ -296,7 +328,7 @@ This project is licensed under the **MIT License** .
 
 ---
 
-![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=NayeemHossenJim.sentiment-analysis)
+![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=NayeemHossenJim.Task-Assignment-AI-ML-Engineer-Position-at-BBS)
 ![Last Updated](https://img.shields.io/badge/Last%20Updated-August%202025-brightgreen)
 
 </div>
