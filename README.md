@@ -19,50 +19,59 @@
 </div>
 
 ## 🌟 Project Overview
-This **state-of-the-art sentiment analysis system** leverages advanced machine learning algorithms to predict the emotional polarity of text with remarkable accuracy. Built for the **AI/ML Engineer position at BBS**, this project demonstrates expertise in:
+This **comprehensive sentiment analysis system** demonstrates two distinct approaches to IMDB movie review classification, showcasing both traditional machine learning and modern deep learning techniques. Built for the **AI/ML Engineer position at BBS**, this project demonstrates expertise in:
 
 - 🧠 **Natural Language Processing (NLP)**
-- 🤖 **Machine Learning Model Development**
-- 📊 **Data Science & Analytics**
+- 🤖 **Traditional Machine Learning (Logistic Regression + TF-IDF)**
+- 🚀 **Deep Learning (BERT Transformer Model)**
+- 📊 **Data Science & Advanced Analytics**
 - 🎯 **Production-Ready AI Solutions**
 
 ### 🎭 What Makes This Special?
 
-- **Real-time Analysis**: Instant sentiment predictions
-- **High Accuracy**: Trained on 25K movie reviews
-- **Interactive Demo**: User-friendly interface with beautiful visualizations
-- **Production Ready**: Optimized for real-world deployment
+- **Dual Approach**: Compare traditional ML vs. state-of-the-art BERT
+- **High Performance**: 95.65% accuracy with deep learning approach
+- **Real Dataset**: Trained on authentic IMDB movie reviews
+- **Production Ready**: Both models optimized for deployment
+- **Comprehensive Analysis**: Detailed performance comparison and insights
 
 ---
 
 ## 🛠️ Technical Approach
 
-### 📋 Data Pipeline
+### 📋 Dual Model Pipeline
 
 ```mermaid
 graph LR
-    A[📄 Raw Data] --> B[🧹 Preprocessing]
-    B --> C[🔤 Tokenization]
-    C --> D[📊 TF-IDF Vectorization]
-    D --> E[🤖 Model Training]
-    E --> F[💾 Model Deployment]
+    A[📄 IMDB Dataset] --> B[🧹 Text Preprocessing]
+    B --> C{� Model Choice}
+    C -->|Traditional ML| D[📊 TF-IDF Vectorization]
+    C -->|Deep Learning| E[🤖 BERT Tokenization]
+    D --> F[🎯 Logistic Regression]
+    E --> G[🧠 BERT Classification]
+    F --> H[💾 Model Deployment]
+    G --> H
 ```
 
-| Stage | Process | Tools |
-|-------|---------|-------|
-| **🔍 Data Exploration** | Analyzed IMDB movie reviews dataset | `pandas`, `matplotlib` |
-| **🧹 Data Cleaning** | HTML removal, text normalization, lemmatization | `BeautifulSoup`, `NLTK` |
-| **📊 Feature Engineering** | TF-IDF vectorization with n-grams (1-2) | `scikit-learn` |
-| **🤖 Model Training** | Logistic Regression with class balancing | `scikit-learn` |
-| **📈 Model Evaluation** | F1-score, precision, recall, confusion matrix | `scikit-learn` |
-| **💾 Model Deployment** | Pickle serialization for production use | `pickle` |
+### 🔬 Traditional ML Approach
 
-### 🎯 Key Features
+| Stage | Process | Implementation |
+|-------|---------|----------------|
+| **🧹 Data Cleaning** | HTML removal, text normalization | `BeautifulSoup`, `regex` |
+| **🔤 Text Processing** | Lemmatization, stopword removal | `NLTK WordNetLemmatizer` |
+| **📊 Feature Engineering** | TF-IDF vectorization (5000 features, 1-2 grams) | `scikit-learn TfidfVectorizer` |
+| **🤖 Model Training** | Logistic Regression with balanced classes | `LogisticRegression(class_weight='balanced')` |
+| **📈 Evaluation** | Accuracy, F1-score, confusion matrix | `scikit-learn metrics` |
 
-- **🧠 Advanced NLP**: Lemmatization + stopword removal
-- **📊 TF-IDF Vectorization**: 5,000 features with bi-gram support
-- **⚖️ Balanced Learning**: Class-weighted training for optimal performance
-- **🎪 N-gram Analysis**: Captures context with 1-2 gram combinations
+### 🧠 Deep Learning Approach
+
+| Stage | Process | Implementation |
+|-------|---------|----------------|
+| **🚀 Model Architecture** | Pre-trained BERT base uncased | `transformers BertForSequenceClassification` |
+| **� Tokenization** | BERT tokenizer with 256 max length | `BertTokenizer.from_pretrained` |
+| **⚡ Optimization** | AdamW optimizer, 2e-5 learning rate | `torch.optim.AdamW` |
+| **🎯 Training** | Single epoch with batch size 32 | `DataLoader, TensorDataset` |
+| **📊 Evaluation** | GPU-accelerated inference | `torch.cuda` support |
 
 ---
 
@@ -70,15 +79,31 @@ graph LR
 
 <div align="center">
 
-| Category | Technologies |
-|----------|-------------|
-| **🐍 Core Language** | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) |
-| **🤖 Machine Learning** | ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white) ![NLTK](https://img.shields.io/badge/NLTK-154f3c?style=flat-square) |
-| **📊 Data Science** | ![Pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/numpy-013243?style=flat-square&logo=numpy&logoColor=white) |
-| **📈 Visualization** | ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=flat-square) ![Seaborn](https://img.shields.io/badge/Seaborn-3776ab?style=flat-square) |
-| **📒 Development** | ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white) ![Google Colab](https://img.shields.io/badge/Colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white) |
+| Category | Traditional ML | Deep Learning |
+|----------|----------------|---------------|
+| **🐍 Core Language** | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) |
+| **🤖 ML Framework** | ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white) | ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white) |
+| **🧠 NLP Libraries** | ![NLTK](https://img.shields.io/badge/NLTK-154f3c?style=flat-square) | ![Transformers](https://img.shields.io/badge/🤗_Transformers-FFD21E?style=flat-square) |
+| **📊 Data Processing** | ![Pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white) ![BeautifulSoup](https://img.shields.io/badge/BeautifulSoup-3776ab?style=flat-square) | ![Pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white) |
+| **📈 Visualization** | ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=flat-square) | ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=flat-square) ![Seaborn](https://img.shields.io/badge/Seaborn-3776ab?style=flat-square) |
+| **⚡ Acceleration** | CPU Optimized | ![CUDA](https://img.shields.io/badge/CUDA-76B900?style=flat-square&logo=nvidia&logoColor=white) GPU Support |
+| **💾 Model Storage** | ![Pickle](https://img.shields.io/badge/Pickle-3776ab?style=flat-square) | ![PyTorch](https://img.shields.io/badge/PyTorch_State-EE4C2C?style=flat-square) |
 
 </div>
+
+### 🔧 Key Technical Components
+
+#### 🔬 Traditional ML Stack:
+- **Text Processing**: `NLTK WordNetLemmatizer`, `BeautifulSoup` for HTML cleaning
+- **Feature Engineering**: `TfidfVectorizer` with 5000 features, n-grams (1,2)
+- **Classification**: `LogisticRegression` with balanced class weights
+- **Evaluation**: `sklearn.metrics` for comprehensive analysis
+
+#### 🧠 Deep Learning Stack:
+- **Model Architecture**: `BERT-base-uncased` pre-trained transformer
+- **Tokenization**: `BertTokenizer` with 256 max sequence length
+- **Training**: `AdamW` optimizer, learning rate 2e-5
+- **Hardware**: CUDA-enabled GPU acceleration for faster training
 
 ---
 
