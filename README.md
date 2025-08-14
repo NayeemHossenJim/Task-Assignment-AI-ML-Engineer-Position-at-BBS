@@ -162,10 +162,6 @@ pip install -r requirements.txt
 
 ## 🎯 Live Demo Examples
 
-<div align="center">
-<img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Magic%20wand/3D/magic_wand_3d.png" width="60" alt="Magic Wand"/>
-</div>
-
 | Input Text | Predicted Sentiment |
 |------------|-------------------|
 | *"This movie is absolutely fantastic!"* | 🟢 **POSITIVE** |
