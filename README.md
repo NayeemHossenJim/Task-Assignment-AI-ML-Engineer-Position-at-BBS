@@ -213,21 +213,46 @@ pip install -r requirements.txt
    - N-gram analysis (1-2 grams) for context
    - Sublinear TF scaling for better performance
 
-### 🤖 Model Architecture
+### 🤖 Model Architectures
 
+#### 🔬 Traditional ML Model
 ```python
+# Feature Engineering
+TfidfVectorizer(
+    max_features=5000,         # Top 5K features
+    ngram_range=(1, 2),        # Unigrams + Bigrams
+    sublinear_tf=True          # Log scaling
+)
+
 # Model Configuration
 LogisticRegression(
     class_weight='balanced',    # Handle imbalanced data
     solver='liblinear',         # Optimized solver
     random_state=42            # Reproducible results
 )
+```
 
-# Feature Engineering
-TfidfVectorizer(
-    max_features=5000,         # Top 5K features
-    ngram_range=(1, 2),        # Unigrams + Bigrams
-    sublinear_tf=True          # Log scaling
+#### 🧠 Deep Learning Model
+```python
+# Model Architecture
+model = BertForSequenceClassification.from_pretrained(
+    'bert-base-uncased',       # Pre-trained BERT model
+    num_labels=2,              # Binary classification
+    output_attentions=False,   # Disable attention outputs
+    output_hidden_states=False # Disable hidden state outputs
+)
+
+# Tokenizer Configuration
+tokenizer = BertTokenizer.from_pretrained(
+    'bert-base-uncased',       # Matching tokenizer
+    do_lower_case=True         # Lowercase normalization
+)
+
+# Training Configuration
+optimizer = AdamW(
+    model.parameters(),
+    lr=2e-5,                   # Learning rate
+    eps=1e-8                   # Adam epsilon
 )
 ```
 
@@ -237,14 +262,14 @@ TfidfVectorizer(
 
 ### 🎯 Model Performance Comparison
 
-| Metric | ML Model | Deep Learning | Winner |
-|--------|----------|---------------|---------|
-| **Accuracy** | 88.50% | 95.65% | 🧠 **DL** |
-| **Precision (Neg)** | 89% | 96% | 🧠 **DL** |
-| **Precision (Pos)** | 88% | 95% | 🧠 **DL** |
-| **Recall (Neg)** | 88% | 95% | 🧠 **DL** |
-| **Recall (Pos)** | 89% | 96% | 🧠 **DL** |
-| **F1-Score** | 88-89% | 96% | 🧠 **DL** |
+| Metric | ML Model | Deep Learning |
+|--------|----------|---------------|
+| **Accuracy** | 88.50% | 95.65% |
+| **Precision (Neg)** | 89% | 96% |
+| **Precision (Pos)** | 88% | 95% |
+| **Recall (Neg)** | 88% | 95% |
+| **Recall (Pos)** | 89% | 96% |
+| **F1-Score** | 88-89% | 96% |
 
 ### 🔍 Confusion Matrix Analysis
 
